@@ -77,7 +77,13 @@ class Array
         new_arr
     end
 
-    def my_zip 
+    def my_zip(*arr)
+        h= arr.length
+        w = arr.map(&:length).max
+        new_arr = Array.new(h) {Array.new(w, nil)}
+        (0...h).each do |row|
+            (0...w).each do |col|
+                new_arr[row][col] = arr[]
 
     end
 
