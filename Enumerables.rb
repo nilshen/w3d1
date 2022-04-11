@@ -6,16 +6,18 @@ class Array
             self[i]
             i+=1
         end
+        self
     end
 
 end
 
 # calls my_each twice on the array, printing all the numbers twice.
-return_value = [1, 2, 3].my_each do |num|
+return_value = [1, 2, 3]
+return_value.each do |num|
     puts num
-   end.my_each do |num|
+end.each do |num|
     puts num
-   end
+end
 #    # => 1
 #        2
 #        3
