@@ -36,8 +36,11 @@ class Array
 
     def my_any?(&prc)
         
+
+        self
     end
 
 end
+
 
 
