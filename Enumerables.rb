@@ -62,16 +62,36 @@ class Array
         true
     end
 
-    def my_flatten(array)
-        new_array = []
-        array.each do |ele|
-            ele.each { |el| my_flatten(el) }
-            new_array << el
+    def my_flatten
+        if !self.is_a?(Array)
+            return [self]
         end
+        new_arr = []
+        self.each do |mini_arr|
+            if !mini_arr.is_a?(Array)
+                new_arr << mini_arr
+            else
+                new_arr += mini_arr.my_flatten
+            end
+        end
+        new_arr
     end
+
+    def my_zip 
+
+    end
+
+
+
+
+
+
+
+
 end
 
-[1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+
+# p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
 
 # p a = [1, 2, 3]
 # p a.my_any? { |num| num > 1 } # => true
